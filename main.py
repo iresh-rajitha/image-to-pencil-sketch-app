@@ -29,7 +29,7 @@ def get_image_download_link(img):
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
-    st.title("Devindi")
+    st.title("CONVERT IMAGE INTO A COLOR PENCIL SKETCH")
     st.header("Upload your file")
     #color = st.color_picker('Pick A Color', '#00f900')
     #st.write('The current color is', color)
@@ -82,7 +82,7 @@ def print_hi(name):
        		#plt.imsave(img,fig)
        		if st.button('Download'):
        			fig.savefig('PencilSketch.png')
-       			
+
 
        		
 
@@ -115,30 +115,10 @@ def print_hi(name):
        		if st.button('Download'):
        			fig.savefig('FinalSketch.png')
 
-
-       		
-
-       		
-
-
-
-
-
-        
-
-        
-
-
-
-
-
-
-        
+     
         # st.header("Data Application")
         
         
-
-
         # Save Sketch
         # cv2.imwrite('sketch.png', sketch_img)
         print('Hello1')
