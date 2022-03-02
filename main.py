@@ -61,7 +61,6 @@ def print_hi(name):
 
         dst_sketch, dst_color_sketch = cv2.pencilSketch(opencv_image, sigma_s=50, sigma_r=0.07, shade_factor=0.08)
         dst_water_color = cv2.stylization(opencv_image, sigma_s=50, sigma_r=0.0825)
-
         invert = cv2.bitwise_not(dst_sketch)
 
         option = st.selectbox(
@@ -75,32 +74,34 @@ def print_hi(name):
                                                                                     size=20)
             st.pyplot(fig)
             # plt.imsave(img,fig)
-            if st.button('Download'):
-                fig.savefig('PencilSketch.png')
+            result = Image.fromarray(invert)
+            st.markdown(get_image_download_link(result), unsafe_allow_html=True)
 
         # result = Image.fromarray(img)
         # st.markdown(get_image_download_link(result), unsafe_allow_html=True)
 
         if option == "Color Pencil":
             fig = plt.figure(figsize=(12, 5))
-            plt.imshow(cv2.cvtColor(dst_color_sketch, cv2.COLOR_BGR2RGB)), plt.axis('off'), plt.title(
+            result = cv2.cvtColor(dst_color_sketch, cv2.COLOR_BGR2RGB)
+            plt.imshow(result), plt.axis('off'), plt.title(
                 'Color Pencil-Sketch', size=20)
             st.pyplot(fig)
-            if st.button('Download'):
-                fig.savefig('ColorPencil.png')
+            result = Image.fromarray(result)
+            st.markdown(get_image_download_link(result), unsafe_allow_html=True)
 
         if option == "Water Color":
             fig = plt.figure(figsize=(12, 5))
-            plt.imshow(cv2.cvtColor(dst_water_color, cv2.COLOR_BGR2RGB)), plt.axis('off'), plt.title(
+            result = cv2.cvtColor(dst_water_color, cv2.COLOR_BGR2RGB)
+            plt.imshow(result), plt.axis('off'), plt.title(
                 'Water Color Image', size=20)
             st.pyplot(fig)
-            if st.button('Download'):
-                fig.savefig('WaterColor.png')
+            result = Image.fromarray(result)
+            st.markdown(get_image_download_link(result), unsafe_allow_html=True)
 
         if option == "Final Sketch":
             st.image(sketch_img)
-            if st.button('Download'):
-                fig.savefig('FinalSketch.png')
+            result = Image.fromarray(sketch_img)
+            st.markdown(get_image_download_link(result), unsafe_allow_html=True)
 
         # st.header("Data Application")
 
